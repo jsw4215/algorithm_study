@@ -2,6 +2,7 @@
 from collections import deque
 
 from binary.prac import make_tree_by
+from binary.structures import TreeNode
 
 
 def solution(binaryTreeList):
@@ -34,11 +35,26 @@ def solution(binaryTreeList):
     def deserialize(serializedStr):
         nodes = serializedStr
 
-        print(f'{nodes}')
+        root = TreeNode(int(nodes[0]))
+        queue = deque([root])
+        index = 1
+        while queue:
+            node=queue.popleft()
+            if nodes[index] is not '#':
+                #left될 놈
+                node.left = TreeNode(nodes[index])
+                queue.append(node.left)
+            index+=1
 
+            if nodes[index] is not '#':
+                #right될 놈
+                node.right = TreeNode(nodes[index])
+                queue.append(node.right)
+            index+=1
 
+        return root
 
-    deserialize(result)
+    root2=deserialize(result)
 
     return root
 

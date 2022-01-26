@@ -1,4 +1,4 @@
-#binary DFS Templates
+#binary BFS Templates
 from collections import deque
 
 from binary.prac import make_tree_by

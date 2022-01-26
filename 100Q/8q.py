@@ -1,7 +1,7 @@
 def solution(nums):
 
     nums.insert(2,1000)
-
+    nums.insert(1000, 222)
     return nums
 
 

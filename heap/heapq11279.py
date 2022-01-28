@@ -11,8 +11,8 @@ if __name__ == '__main__':
         if num==0:
             try:
                 temp = heapq.heappop(heap)
-                print(temp)
+                print(-temp)
             except:
                 print('0')
         else:
-            heapq.heappush(heap, num)
+            heapq.heappush(heap, -num)

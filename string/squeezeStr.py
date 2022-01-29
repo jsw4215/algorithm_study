@@ -36,7 +36,7 @@ def squeeze(strs):
 
 if __name__ == '__main__':
 
-    n = "ababcdcdababcdcd"
+    n = "aabbaccc"
 
     result = squeeze(n)
     print(f'result: {result}')

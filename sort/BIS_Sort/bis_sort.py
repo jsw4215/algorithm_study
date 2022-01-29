@@ -11,6 +11,8 @@ class PracSort():
                 if l[j] > key:
                     l[j+1] = l[j]
                     l[j] = key
+                else:
+                    break
                 j-=1
 
         return l
@@ -31,7 +33,8 @@ class PracSort():
             for j in range(i+1,len(l)):
                 if l[min] > l[j]:
                     min = j
-            l[min], l[i] = l[i], l[min]
+            if min!=i:
+                l[min], l[i] = l[i], l[min]
 
 
         return l
@@ -39,7 +42,7 @@ class PracSort():
 
 if __name__ == '__main__':
 
-    dummy = [6,3,5,8,9,5,45,123,569]
+    dummy = [999,6,3,5,8,9,5,45,123,569]
 
     sorting = PracSort()
 

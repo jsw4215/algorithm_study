@@ -2,41 +2,35 @@ from bisect import bisect_left
 
 def solution(numOfRiceCake, requested, lst):
 
-    arr = []
-    result = []
-
-    for i in range(len(lst)):
-        idx = bisect_left(arr, lst[i])
-        arr.insert(idx, lst[i])
+    result = 0
 
     def bin_search(left, right):
 
-        mid = (left + right) // 2
+        nonlocal result
 
-        node = arr[mid]
+        while left < right:
+            result=0
+            mid = (left + right) // 2
 
-        if requested > node:
-            left = mid + 1
-            result.append(node - requested)
-        elif requested < node:
-            right = mid -1
-            result.append(0)
-        else:
-            result.append(0)
-            return result
+            for rc in lst:
+                if rc > mid:
+                    result += (rc-mid)
 
-        bin_search(left, right)
+            if result > requested:
+                left = mid+1
+            elif result < requested:
+                right = mid-1
+            else:
+                return mid
+
 
     left = 0
-    right = numOfRiceCake - 1
+    right = max(lst)
 
     result = bin_search(left, right)
 
-
-
-
-
     return result
+
 
 if __name__ == '__main__':
 

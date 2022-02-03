@@ -1,38 +1,28 @@
 from bisect import bisect_left
 
-def solution(n, l1, m, l2):
+def solution(n, l1):
 
-    result = []
+    result = -1
 
     def bin_search():
-
         nonlocal result
 
-        for x in l2:
-            checker = False
-            left = 0
-            right = len(l1) - 1
+        left = 0
+        right = len(l1)-1
 
-            while left <= right:
-                mid = (left + right) // 2
+        while left <= right :
 
-                if x > l1[mid]:
-                    left = mid+1
-                elif x < l1[mid]:
-                    right = mid-1
-                else:
-                    if l1[mid] == x:
-                        checker = True
-                        break
+            mid = (left + right)//2
 
-            result.append(checker)
+            if mid > l1[mid]:
+                left = mid+1
+            elif mid < l1[mid]:
+                right = mid-1
+            else:
+                result = mid
+                break
 
-        return result
-
-    l1.sort()
-
-
-    result = bin_search()
+    bin_search()
 
     return result
 
@@ -40,10 +30,8 @@ def solution(n, l1, m, l2):
 if __name__ == '__main__':
 
     n = 5
-    l1 = [8, 3, 7, 9, 2]
-    m=3
-    l2 = [5, 7, 9]
+    l1 = [-15,-6,1,3,7]
 
-    result = solution(n, l1, m, l2)
+    result = solution(n, l1)
 
     print('result : ' + str(result))

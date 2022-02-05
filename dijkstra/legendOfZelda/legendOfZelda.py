@@ -34,7 +34,7 @@ def dijkstra(graph, n):
             nx = x + px[i]
             ny = y + py[i]
             if n > nx >= 0 and n > ny >= 0:
-                cost = graph[nx][ny] + graph[x][y]
+                cost = graph[nx][ny] + distance[x][y]
                 distance[nx][ny] = cost
 
         while True:
@@ -53,16 +53,16 @@ def dijkstra(graph, n):
             for i in range(4):
                 nx = x + px[i]
                 ny = y + py[i]
-                if visited[nx][ny] is not True and n > nx >= 0 and n > ny >= 0:
-                    cost = graph[nx][ny] + graph[x][y]
-                    if distance[nx][ny]==-1:
+                if  n > nx >= 0 and n > ny >= 0 and visited[nx][ny] is not True:
+                    cost = graph[nx][ny] + distance[x][y]
+                    if distance[nx][ny] == -1:
                         distance[nx][ny] = cost
                     elif distance[nx][ny] > cost:
                         distance[nx][ny] = cost
 
     algo()
 
-    return distance
+    return distance[n-1][n-1]
 
 
 if __name__ == '__main__':
@@ -70,14 +70,21 @@ if __name__ == '__main__':
     input = sys.stdin.readline
     INF = int(1e9)
 
-    n = 3
+    graph = []
+    i = 0
 
-    graph = [
-        [5,5,4],
-        [3,9,1],
-        [3,2,7]
-    ]
+    while True:
 
-    result = dijkstra(graph, n)
+        n = int(input())
 
-    print(f'{result}')
+        if n==0:
+            break
+
+        for _ in range(n):
+            row = list(map(int, input().split()))
+            graph.append(row)
+
+        result = dijkstra(graph, n)
+        i+=1
+        print(f'Problem {i}: {result}')
+        graph=[]

@@ -12,7 +12,7 @@ def mergeSort(arr):
             break
 
         if arr[i][1]>=arr[i+1][0]:
-            temp = [arr[i][0], arr[i+1][1]]
+            temp = [arr[i][0], max(arr[i+1][1],arr[i][1])]
             result.append(temp)
             i+=1
         else:

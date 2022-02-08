@@ -26,12 +26,12 @@ def dijkstra(n, flights, src, dst, K):
 
 if __name__ == '__main__':
 
-    n = 3
-    src = 1
-    dst = 2
-    k = 1
+    n = 5
+    src = 0
+    dst = 4
+    k = 3
 
-    times = [[0,1,2],[1,2,1],[2,0,10]]
+    times = [[0, 1, 1], [0, 2, 5], [1, 2, 1], [2, 3, 1],[3, 4, 1]]
 
     result = dijkstra(n, times, src, dst, k)
 

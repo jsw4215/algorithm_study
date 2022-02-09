@@ -27,7 +27,8 @@ def solution(n, num, operator):
                     temp=-temp
                     temp//=num[i+1]
                     temp=-temp
-                temp //= num[i+1]
+                else:
+                    temp //= num[i+1]
 
         _max = max(_max, temp)
         _min = min(_min, temp)

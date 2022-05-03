@@ -1,7 +1,6 @@
 #binary DFS Templates
 from binary.prac import make_tree_by
 
-
 def solution(binaryTreeList):
 
     root = make_tree_by(binaryTreeList, 0)
@@ -15,16 +14,9 @@ def solution(binaryTreeList):
         left = dfs(node.left, level+1)
         right = dfs(node.right, level+1)
 
-
-
-
-
-
-
         return max(left,right)
 
     dfs(root, 0)
-
 
     pass
 

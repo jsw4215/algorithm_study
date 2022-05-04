@@ -28,7 +28,7 @@ with open('testcase_triangle.txt') as f:
 
         return memo[x][y]
 
-    for i in range(N):
+    for i in range(N) :
         test = tri_dp(N-1,i)
 
     print(f'{max(memo[N-1])}')

@@ -7,7 +7,7 @@ def dijkstra(n, flights, src, dst, K):
 
     for u,v,w in flights:
         graph[u].append((v,w))
-
+    print("data",graph)
     queue = [(0, src, K)]
 
     while queue:  # queue에 남아 있는 노드가 없으면 끝

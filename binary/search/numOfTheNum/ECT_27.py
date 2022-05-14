@@ -5,7 +5,7 @@ def solution(x, lst):
 
     left = bisect_left(lst, x)
     right = bisect_right(lst, x)
-
+    print("left", left, "right", right)
     return right-left
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 import sys
 
-
 def find_parent(x, parent):
     if parent[x] != x:
         parent[x] = find_parent(parent[x], parent)
@@ -14,7 +13,6 @@ def union_parent(a, b, parent):
         parent[b] = a
     else:
         parent[a] = b
-
 
 if __name__ == "__main__":
     while True:

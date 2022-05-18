@@ -3,10 +3,9 @@ import collections
 
 def gr_ana(n):
     anagram = collections.defaultdict(list)
-
+    
     for word in n:
         anagram[''.join(sorted(word))].append(word)
-
     return anagram.values()
 
 
